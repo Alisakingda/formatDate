@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>formatDate</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="">
+</head>
+
+<body>
+  <!-- 日期方法 -->
+  <script>
+    {
+      var date = new Date(); //中国标准时间
+      var year = date.getFullYear(); //获取完整的年份(4位)
+      var month = date.getMonth(); //获取当前月份(0-11,0代表1月)
+      var nowDate = date.getDate(); //获取当前日(1-31)
+      var day = date.getDay(); //获取当前星期X(0-6,0代表星期天)
+      console.log(date, year, month, nowDate, day)
+    }
+
+    {
+      function formatDate(dateArg) {
+        const date = new Date(dateArg);
+        const year = date.getFullYear();
+        const month = date.getMonth() + 1;
+        const day = date.getDate();
+        const formatMonth = month < 10 ? `0${month}` : month;
+        const formatDay = day < 10 ? `0${day}` : day;
+
+        return `${year}-${formatMonth}-${formatDay}`
+      }
+
+      console.log(new Date())
+      console.log(formatDate(new Date()))
+    }
+
+
+    {
+      //获取当前日期 时间
+      function todayTime() {
+        var date = new Date();
+        var curYear = date.getFullYear();
+        var curMonth = date.getMonth() + 1;
+        var curDate = date.getDate();
+        if (curMonth < 10) {
+          curMonth = '0' + curMonth;
+        }
+        if (curDate < 10) {
+          curDate = '0' + curDate;
+        }
+        var curHours = date.getHours();
+        var curMinutes = date.getMinutes();
+        var curtime = curYear + '年' + curMonth + '月' + curDate + '日 ' + curHours + '时' + curMinutes + '分 ';
+        return curtime;
+      }
+
+      console.log(todayTime(new Date()))
+    }
+  </script>
+</body>
+
+</html>
